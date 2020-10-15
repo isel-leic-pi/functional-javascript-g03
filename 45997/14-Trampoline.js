@@ -1,15 +1,15 @@
 'use strict'
 
 function repeat(operation, num) {
-    if (num <= 0) return
     return function() {
+        if (num <= 0) return
         operation()
         return repeat(operation, --num)
     }
 }
 
 function trampoline(fn) {
-   while(typeof fn === 'function') {
+   while(fn && typeof fn === 'function') {
        fn = fn()
    }
    return fn

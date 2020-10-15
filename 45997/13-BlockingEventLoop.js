@@ -3,7 +3,7 @@
 function repeat(operation, num) {
     if (num <= 0) return
     operation()
-    return setImmediate(function() {
+    setTimeout(function() {
         repeat(operation, --num)
     })
 }
