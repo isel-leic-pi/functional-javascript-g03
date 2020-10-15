@@ -3,12 +3,6 @@ module.exports = function repeat(operation, num){
 
     operation()
 
-    if (num % 100 === 0) {
-        setTimeout(function() {
-          repeat(operation, --num)
-        })
-      } else {
-        repeat(operation, --num)
-      }
+    setTimeout(() => repeat(operation, --num))
 
 }
